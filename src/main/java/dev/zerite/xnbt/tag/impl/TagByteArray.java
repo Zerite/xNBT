@@ -33,13 +33,8 @@ public final class TagByteArray implements NBTTag {
 
     public static TagByteArray read(DataInputStream is) throws IOException {
         int length = is.readInt();
-
         byte[] value = new byte[length];
-        int read = is.read(value);
-        if (read != length) {
-            throw new IOException("Expected " + length + " bytes, but got " + read);
-        }
-
+        is.readFully(value);
         return new TagByteArray(value);
     }
 
