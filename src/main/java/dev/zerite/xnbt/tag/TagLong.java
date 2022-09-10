@@ -3,6 +3,7 @@ package dev.zerite.xnbt.tag;
 import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.util.Objects;
 
 public class TagLong implements NBTTag {
 
@@ -29,5 +30,18 @@ public class TagLong implements NBTTag {
 
     public static TagLong read(DataInputStream is) throws IOException {
         return new TagLong(is.readLong());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TagLong tagLong = (TagLong) o;
+        return value == tagLong.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Long.hashCode(value);
     }
 }
