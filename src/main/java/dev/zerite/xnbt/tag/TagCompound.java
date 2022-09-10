@@ -31,7 +31,28 @@ public class TagCompound implements NBTTag {
 
     @Override
     public String toString() {
-        return "TagCompound(" + tagMap.toString() + ")";
+        StringBuilder builder = new StringBuilder();
+        builder.append("TagCompound(").append(tagMap.size()).append(" entries): {\n");
+        for (Map.Entry<String, NBTTag> entry : tagMap.entrySet()) {
+            builder.append("  '").append(entry.getKey()).append("': ");
+
+            if (entry.getValue() instanceof TagCompound || entry.getValue() instanceof TagList) {
+                String[] split = entry.getValue().toString().split("\n");
+                boolean first = true;
+                for (String s : split) {
+                    if (!first) {
+                        builder.append("  ");
+                    }
+
+                    first = false;
+                    builder.append(s).append("\n");
+                }
+            } else {
+                builder.append(entry.getValue()).append("\n");
+            }
+        }
+        builder.append("}");
+        return builder.toString();
     }
 
     public static TagCompound read(DataInputStream is) throws IOException {

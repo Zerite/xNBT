@@ -38,7 +38,36 @@ public class TagList implements NBTTag {
 
     @Override
     public String toString() {
-        return "TagByteArray(" + value + ")";
+        StringBuilder builder = new StringBuilder();
+        builder.append("TagList(").append(value.size()).append(" entries): [\n");
+
+        for (int i = 0; i < value.size(); i++) {
+            NBTTag tag = value.get(i);
+
+            if (tag instanceof TagCompound || tag instanceof TagList) {
+                String[] split = tag.toString().split("\n");
+
+                for (int j = 0; j < split.length; j++) {
+                    String s = split[j];
+                    if (j != split.length - 1) {
+                        builder.append("  ").append(s).append("\n");
+                    } else {
+                        builder.append("  ").append(s);
+                    }
+                }
+            } else {
+                builder.append("  ").append(tag);
+            }
+
+            if (i != value.size() - 1) {
+                builder.append(",\n");
+            } else {
+                builder.append("\n");
+            }
+        }
+
+        builder.append("]");
+        return builder.toString();
     }
 
     public static TagList read(DataInputStream is) throws IOException {

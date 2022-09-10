@@ -28,7 +28,7 @@ public class TagLongArray implements NBTTag {
 
     @Override
     public String toString() {
-        return "TagByteArray(" + Arrays.toString(value) + ")";
+        return "TagLongArray(" + Arrays.toString(value) + ")";
     }
 
     public static TagLongArray read(DataInputStream is) throws IOException {
