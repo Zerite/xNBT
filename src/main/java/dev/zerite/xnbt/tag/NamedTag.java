@@ -1,12 +1,18 @@
 package dev.zerite.xnbt.tag;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 public class NamedTag {
 
+    @NotNull
     private final String name;
 
+    @NotNull
     private final NBTTag tag;
 
-    public NamedTag(String name, NBTTag tag) {
+    public NamedTag(@NotNull String name, @NotNull NBTTag tag) {
         this.name = name;
         this.tag = tag;
     }
@@ -19,6 +25,16 @@ public class NamedTag {
         return tag;
     }
 
-    // todo: equals & hashcode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NamedTag namedTag = (NamedTag) o;
+        return name.equals(namedTag.name) && tag.equals(namedTag.tag);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, tag);
+    }
 }

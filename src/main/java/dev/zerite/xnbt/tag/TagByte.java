@@ -30,4 +30,17 @@ public class TagByte implements NBTTag {
     public static TagByte read(DataInputStream is) throws IOException {
         return new TagByte(is.readByte());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TagByte tagByte = (TagByte) o;
+        return value == tagByte.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Byte.hashCode(value);
+    }
 }
