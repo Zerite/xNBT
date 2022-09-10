@@ -36,7 +36,7 @@ public final class TagByte implements NBTTag {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof  TagByte)) return false;
+        if (!(o instanceof TagByte)) return false;
         TagByte tagByte = (TagByte) o;
         return value == tagByte.value;
     }
