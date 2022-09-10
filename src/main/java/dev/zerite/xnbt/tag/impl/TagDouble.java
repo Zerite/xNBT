@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class TagDouble implements NBTTag {
+public final class TagDouble implements NBTTag {
 
     private final double value;
 
@@ -36,7 +36,7 @@ public class TagDouble implements NBTTag {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof TagDouble)) return false;
         TagDouble tagDouble = (TagDouble) o;
         return Double.compare(tagDouble.value, value) == 0;
     }

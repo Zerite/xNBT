@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class TagLong implements NBTTag {
+public final class TagLong implements NBTTag {
 
     private final long value;
 
@@ -36,7 +36,7 @@ public class TagLong implements NBTTag {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof TagLong)) return false;
         TagLong tagLong = (TagLong) o;
         return value == tagLong.value;
     }

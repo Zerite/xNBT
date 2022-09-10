@@ -1,6 +1,6 @@
 package dev.zerite.xnbt.tag.impl;
 
-public class TagType {
+public final class TagType {
 
     public static final int TAG_End = 0;
 

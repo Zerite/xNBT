@@ -7,7 +7,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class TagByteArray implements NBTTag {
+public final class TagByteArray implements NBTTag {
 
     private final byte[] value;
 

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TagList implements NBTTag {
+public final class TagList implements NBTTag {
 
     private final List<NBTTag> value;
 

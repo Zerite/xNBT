@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class TagByte implements NBTTag {
+public final class TagByte implements NBTTag {
 
     private final byte value;
 
@@ -36,7 +36,7 @@ public class TagByte implements NBTTag {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof  TagByte)) return false;
         TagByte tagByte = (TagByte) o;
         return value == tagByte.value;
     }

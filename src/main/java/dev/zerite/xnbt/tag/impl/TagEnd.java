@@ -5,7 +5,7 @@ import dev.zerite.xnbt.tag.NBTTag;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class TagEnd implements NBTTag {
+public final class TagEnd implements NBTTag {
 
     public static final TagEnd INSTANCE = new TagEnd();
 
