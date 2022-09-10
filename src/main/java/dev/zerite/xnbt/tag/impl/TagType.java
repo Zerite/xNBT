@@ -1,4 +1,4 @@
-package dev.zerite.xnbt.tag;
+package dev.zerite.xnbt.tag.impl;
 
 public class TagType {
 

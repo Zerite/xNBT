@@ -1,6 +1,7 @@
-package dev.zerite.xnbt.tag;
+package dev.zerite.xnbt.tag.impl;
 
 import dev.zerite.xnbt.XNBT;
+import dev.zerite.xnbt.tag.NBTTag;
 
 import java.io.DataInputStream;
 import java.io.DataOutput;

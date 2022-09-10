@@ -1,46 +1,48 @@
-package dev.zerite.xnbt.tag;
+package dev.zerite.xnbt.tag.impl;
+
+import dev.zerite.xnbt.tag.NBTTag;
 
 import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class TagByte implements NBTTag {
+public class TagShort implements NBTTag {
 
-    private final byte value;
+    private final short value;
 
-    public TagByte(byte value) {
+    public TagShort(short value) {
         this.value = value;
     }
 
     @Override
     public int getType() {
-        return TagType.TAG_Byte;
+        return TagType.TAG_Short;
     }
 
     @Override
     public void write(DataOutput output) throws IOException {
-        output.write(value);
+        output.writeShort(value);
     }
 
     @Override
     public String toString() {
-        return "TagByte(" + value + ")";
+        return "TagShort(" + value + ")";
     }
 
-    public static TagByte read(DataInputStream is) throws IOException {
-        return new TagByte(is.readByte());
+    public static TagShort read(DataInputStream is) throws IOException {
+        return new TagShort(is.readShort());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TagByte tagByte = (TagByte) o;
-        return value == tagByte.value;
+        TagShort tagShort = (TagShort) o;
+        return value == tagShort.value;
     }
 
     @Override
     public int hashCode() {
-        return Byte.hashCode(value);
+        return Short.hashCode(value);
     }
 }
