@@ -68,4 +68,17 @@ public final class TagCompound implements NBTTag {
         }
         return new TagCompound(tags);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TagCompound)) return false;
+        TagCompound tagCompound = (TagCompound) o;
+        return tagMap.equals(tagCompound.tagMap);
+    }
+
+    @Override
+    public int hashCode() {
+        return tagMap.hashCode();
+    }
 }

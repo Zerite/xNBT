@@ -82,4 +82,17 @@ public final class TagList implements NBTTag {
 
         return new TagList(tags);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TagList)) return false;
+        TagList tagList = (TagList) o;
+        return value.equals(tagList.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
 }

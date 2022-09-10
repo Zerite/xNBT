@@ -41,4 +41,17 @@ public final class TagLongArray implements NBTTag {
         }
         return new TagLongArray(array);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TagLongArray)) return false;
+        TagLongArray tagLongArray = (TagLongArray) o;
+        return Arrays.equals(value, tagLongArray.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(value);
+    }
 }

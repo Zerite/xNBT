@@ -42,4 +42,17 @@ public final class TagByteArray implements NBTTag {
 
         return new TagByteArray(value);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TagByteArray)) return false;
+        TagByteArray tagByteArray = (TagByteArray) o;
+        return Arrays.equals(value, tagByteArray.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(value);
+    }
 }
